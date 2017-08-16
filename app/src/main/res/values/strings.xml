@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="sure">Are you sure to delete this item?</string>
+    <string name="dat">Date and Time:</string>
+    <string name="name">Developer: Amin Memariani</string>
+    <string name="website">aminmemariani.com</string>
+</resources>
