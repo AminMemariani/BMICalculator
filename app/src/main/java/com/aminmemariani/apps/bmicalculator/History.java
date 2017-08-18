@@ -70,7 +70,7 @@ public class History extends AppCompatActivity {
         Bmi.deleteAll(Bmi.class);
         BmiArrayList.clear();
         BmiArrayList.addAll(Bmi.listAll(Bmi.class));
-        bmiAdapter.notifyDataSetChanged();
+        bmiAdapter.notifyDataSetInvalidated();
         listView.invalidateViews();
         listView.refreshDrawableState();
         Toast.makeText(getApplicationContext(),"Foods Deleted Successfully",Toast.LENGTH_SHORT).show();
