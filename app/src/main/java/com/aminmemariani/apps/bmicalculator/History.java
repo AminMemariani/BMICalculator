@@ -73,7 +73,7 @@ public class History extends AppCompatActivity {
         bmiAdapter.notifyDataSetInvalidated();
         listView.invalidateViews();
         listView.refreshDrawableState();
-        Toast.makeText(getApplicationContext(),"Foods Deleted Successfully",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"History Cleared Successfully",Toast.LENGTH_SHORT).show();
     }
     public void ok(View v){
         d.hide();
