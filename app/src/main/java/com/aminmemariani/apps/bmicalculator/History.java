@@ -1,5 +1,4 @@
 package com.aminmemariani.apps.bmicalculator;
-
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,10 +7,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.aminmemariani.apps.bmicalculator.Adapter.BmiAdapter;
 import com.aminmemariani.apps.bmicalculator.dataModel.Bmi;
-
 import java.util.ArrayList;
 import java.util.List;
 public class History extends AppCompatActivity {

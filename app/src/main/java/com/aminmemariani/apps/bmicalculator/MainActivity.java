@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     TextView Height;
     Dialog d;
     boolean green = false;
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         d= new Dialog(MainActivity.this);
@@ -28,21 +27,17 @@ public class MainActivity extends AppCompatActivity {
         d.show();
         return super.onOptionsItemSelected(item);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
+        return super.onCreateOptionsMenu(menu);}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView t = (TextView) findViewById(R.id.txt_bmi);
         List<Bmi> b = Bmi.find(Bmi.class, null, null, null, "Date DESC", "1");
-        if (b.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "No Record", Toast.LENGTH_SHORT).show();
+        if (b.isEmpty()) {Toast.makeText(getApplicationContext(), "No Record", Toast.LENGTH_SHORT).show();
         } else {
             Bmi lastBmi = new Bmi();
             lastBmi = b.get(b.size()-1);
@@ -75,9 +70,7 @@ public class MainActivity extends AppCompatActivity {
             s.setText(status);
             if(green == true){
                 s.setTextColor(Color.GREEN);
-            }else {
-                s.setTextColor(Color.RED);
-            }
+            }else {s.setTextColor(Color.RED);}
         }
     }
     public void showHistory(View v) {
@@ -91,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
         d.setTitle("Add BMI");
         d.show();
     }
-
     public void calculateBmi(View v) {
         Weight = (TextView) d.findViewById(R.id.weight);
         Height = (TextView) d.findViewById(R.id.height);
@@ -141,11 +133,8 @@ public class MainActivity extends AppCompatActivity {
                 stat.setTextColor(Color.GREEN);
             }else {
                 stat.setTextColor(Color.RED);
-            }
-            d.hide();
+            }d.hide();
         }
     }
-    public void ok(View v){
-        d.hide();
-    }
+    public void ok(View v){d.hide();}
 }
