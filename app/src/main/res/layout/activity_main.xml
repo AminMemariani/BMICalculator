@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.aminmemariani.apps.bmicalculator.MainActivity">
+
     <TextView
         android:id="@+id/txt_title"
         android:layout_width="wrap_content"
-        android:layout_height="65sp"
+        android:layout_height="50sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_vertical|center_horizontal|center"
@@ -21,47 +22,99 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/txt_bmi"
         android:layout_width="wrap_content"
-        android:layout_height="100sp"
+        android:layout_height="70sp"
         android:layout_below="@+id/txt_title"
         android:layout_centerHorizontal="true"
         android:autoText="false"
         android:gravity="center_vertical|center_horizontal"
-        android:padding="20sp"
         android:text="--.-"
         android:textColor="@color/colorPrimary"
         android:textSize="50sp" />
+
     <Button
         android:id="@+id/show_history"
         android:layout_width="match_parent"
-        android:layout_height="100sp"
+        android:layout_height="70sp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:background="@android:color/holo_purple"
-        android:text="Show History"
         android:onClick="showHistory"
+        android:text="Show History"
         android:textColor="@android:color/background_light"
         android:textSize="@dimen/txt_normal" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
-        android:layout_height="100sp"
+        android:layout_height="70sp"
+        android:layout_above="@+id/show_history"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:background="@android:color/holo_green_light"
         android:onClick="addNewBmi"
         android:text="add new record"
         android:textColor="@android:color/background_light"
-        android:textSize="@dimen/txt_normal"
-        android:layout_above="@+id/show_history"
-        android:layout_alignParentStart="true" />
+        android:textSize="@dimen/txt_normal" />
+
     <TextView
         android:id="@+id/txt_status"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
+        android:layout_height="50sp"
+        android:layout_above="@+id/textView6"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/txt_bmi"
         android:gravity="center_vertical|center_horizontal"
+        android:textColor="@android:color/background_light"
         android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/ideal"
+        android:textSize="24sp"
+        android:layout_above="@+id/ideal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/ideal"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="@color/cardview_shadow_start_color"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="@android:color/background_light"
+        android:textSize="@dimen/txt_normal"
+        android:layout_above="@+id/textView8"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/normal"
+        android:textSize="24sp"
+        android:layout_above="@+id/range"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/range"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="@color/cardview_shadow_start_color"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="@android:color/background_light"
+        android:textSize="@dimen/txt_normal"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -4,4 +4,6 @@
     <string name="dat">Date and Time:</string>
     <string name="name">Developer: Amin Memariani</string>
     <string name="website">aminmemariani.com</string>
+    <string name="ideal">Ideal Weight: </string>
+    <string name="normal">Normal Weight Limit: </string>
 </resources>

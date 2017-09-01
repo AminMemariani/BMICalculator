@@ -122,18 +122,23 @@ public class MainActivity extends AppCompatActivity {
                 status = "Third Level Fat";
                 green = false;
             }
-            //float normalWeightLow = 18.5f * height * height;
-            //float normalWeightHigh = 25 * height * height;
-            //String naturalWeightLimit = String.valueOf(normalWeightLow) + " to " + String.valueOf(normalWeightHigh);
+            float normalWeightLow = 18.5f * height * height;
+            float normalWeightHigh = 25 * height * height;
+            String normalWeightLimit = String.valueOf(normalWeightLow) + " to " + String.valueOf(normalWeightHigh);
             TextView stat = (TextView) findViewById(R.id.txt_status);
             stat.setText(status);
             TextView BmiText = (TextView) findViewById(R.id.txt_bmi);
             BmiText.setText(String.valueOf(bmi));
+            TextView range = (TextView) findViewById(R.id.range);
+            range.setText(normalWeightLimit);
+            TextView ideal = (TextView) findViewById(R.id.ideal);
+            ideal.setText(String.valueOf(22*height * height));
             if(green == true){
                 stat.setTextColor(Color.GREEN);
             }else {
                 stat.setTextColor(Color.RED);
             }d.hide();
+
         }
     }
     public void ok(View v){d.hide();}
