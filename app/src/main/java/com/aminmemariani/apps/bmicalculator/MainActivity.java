@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     public void calculateBmi(View v) {
         Weight = (TextView) d.findViewById(R.id.weight);
         Height = (TextView) d.findViewById(R.id.height);
-        if (Weight.getText().equals(null) || Height.getText().equals(null)) {
+        if (Weight.getText().toString().equals("") || Height.getText().toString().equals("")) {
             Toast.makeText(MainActivity.this, "Oops! fill up the form please!", Toast.LENGTH_SHORT).show();
         } else {
             Float weight = Float.valueOf(Weight.getText().toString());
