@@ -46,7 +46,7 @@ public class History extends AppCompatActivity {
                     TextView date = (TextView) d.findViewById(R.id.date_and_time);
                     date.setText(selectedB.getDate());
                     TextView bmiD = (TextView) d.findViewById(R.id.bmi_detail);
-                    bmiD.setText(selectedB.getBMI());
+                    bmiD.setText(selectedB.getBmi());
                     d.show();
                 }
             });

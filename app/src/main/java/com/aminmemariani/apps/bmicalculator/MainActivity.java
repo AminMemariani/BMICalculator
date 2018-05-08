@@ -1,6 +1,7 @@
 package com.aminmemariani.apps.bmicalculator;
 import android.app.Dialog;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,15 +11,20 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.aminmemariani.apps.bmicalculator.dataModel.Bmi;
+import com.aminmemariani.apps.bmicalculator.databinding.ActivityMainBinding;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     TextView Weight;
     TextView Height;
     Dialog d;
     boolean green = false;
+    private ActivityMainBinding viewHandler;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         d= new Dialog(MainActivity.this);
@@ -34,16 +40,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        TextView t = (TextView) findViewById(R.id.txt_bmi);
+        viewHandler = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        TextView t = viewHandler.txtBmi;
         List<Bmi> b = Bmi.find(Bmi.class, null, null, null, "Date DESC", "1");
         if (b.isEmpty()) {Toast.makeText(getApplicationContext(), "No Record", Toast.LENGTH_SHORT).show();
         } else {
             Bmi lastBmi = new Bmi();
             lastBmi = b.get(b.size()-1);
-            t.setText(lastBmi.getBMI());
-            TextView s = (TextView) findViewById(R.id.txt_status);
-            float bmi = new Float(t.getText().toString());
+            t.setText(lastBmi.getBmi());
+            TextView s = viewHandler.txtStatus;
+            float bmi = Float.valueOf(t.getText().toString());
             String status = null;
             if (bmi <= 18.5)
                 status = "Slim";
@@ -68,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 green = false;
             }
             s.setText(status);
-            if(green == true){
+            if (green) {
                 s.setTextColor(Color.GREEN);
             }else {s.setTextColor(Color.RED);}
         }
@@ -77,14 +83,16 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, History.class);
         startActivity(i);
     }
-    public void addNewBmi(View v) {
+
+    public void addNewBmi() {
         d = new Dialog(MainActivity.this);
         d.setContentView(R.layout.add_bmi);
         d.setCanceledOnTouchOutside(true);
         d.setTitle("Add BMI");
         d.show();
     }
-    public void calculateBmi(View v) {
+
+    public void calculateBmi() {
         Weight = (TextView) d.findViewById(R.id.weight);
         Height = (TextView) d.findViewById(R.id.height);
         if (Weight.getText().toString().equals("") || Height.getText().toString().equals("")) {
@@ -93,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             Float weight = Float.valueOf(Weight.getText().toString());
             Float height = Float.valueOf(Height.getText().toString());
             float bmi = weight / (height * height);
-            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.US);
             Date date = new Date();
             Bmi bmiData = new Bmi(String.valueOf(bmi), dateFormat.format(date));
             bmiData.save();
@@ -133,12 +141,11 @@ public class MainActivity extends AppCompatActivity {
             range.setText(normalWeightLimit);
             TextView ideal = (TextView) findViewById(R.id.ideal);
             ideal.setText(String.valueOf(22*height * height));
-            if(green == true){
+            if (green) {
                 stat.setTextColor(Color.GREEN);
             }else {
                 stat.setTextColor(Color.RED);
             }d.hide();
-
         }
     }
     public void ok(View v){d.hide();}

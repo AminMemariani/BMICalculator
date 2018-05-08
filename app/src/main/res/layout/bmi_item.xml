@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
-
     <TextView
         android:id="@+id/txt_item_bmi"
         android:layout_width="match_parent"
@@ -12,5 +11,4 @@
         android:gravity="center_vertical"
         android:textAppearance="@android:style/TextAppearance"
         android:textSize="@dimen/txt_normal" />
-
 </LinearLayout>

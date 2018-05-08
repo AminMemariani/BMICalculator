@@ -39,13 +39,11 @@ public class BmiAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null){
-            convertView = View.inflate(context, R.layout.bmi_item,null);
+            convertView = View.inflate(context, R.layout.bmi_item, null);
         }
         TextView BmiValue = (TextView) convertView.findViewById(R.id.txt_item_bmi);
-        //TextView BmiDate = (TextView) convertView.findViewById(R.id.txt_item_date);
         Bmi bmi = BmiList.get(position);
-        BmiValue.setText(bmi.getBMI());
-        //BmiDate.setText(bmi.getDate());
+        BmiValue.setText(bmi.getBmi());
         return convertView;
     }
 }

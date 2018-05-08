@@ -35,7 +35,6 @@
         android:layout_below="@+id/d_and_t"
         android:background="@color/colorPrimary"
         android:gravity="center_vertical|center"
-        android:textColor="@color/cardview_light_background"
         android:textSize="24dp" />
 
     <TextView
@@ -45,6 +44,5 @@
         android:layout_below="@+id/textView2"
         android:background="@color/colorPrimary"
         android:gravity="center_vertical|center"
-        android:textColor="@color/cardview_light_background"
         android:textSize="24dp" />
 </RelativeLayout>
