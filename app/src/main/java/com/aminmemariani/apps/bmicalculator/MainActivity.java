@@ -75,8 +75,10 @@ public class MainActivity extends AppCompatActivity {
             }
             s.setText(status);
             if (green) {
-                s.setTextColor(Color.GREEN);
-            }else {s.setTextColor(Color.RED);}
+                s.setTextColor(0x002aad97);
+            } else {
+                s.setTextColor(0xffff0000);
+            }
         }
     }
     public void showHistory(View v) {
@@ -133,18 +135,18 @@ public class MainActivity extends AppCompatActivity {
             float normalWeightLow = 18.5f * height * height;
             float normalWeightHigh = 25 * height * height;
             String normalWeightLimit = String.valueOf(normalWeightLow) + " to " + String.valueOf(normalWeightHigh);
-            TextView stat = (TextView) findViewById(R.id.txt_status);
+            TextView stat = viewHandler.txtStatus;
             stat.setText(status);
-            TextView BmiText = (TextView) findViewById(R.id.txt_bmi);
+            TextView BmiText = viewHandler.txtBmi;
             BmiText.setText(String.valueOf(bmi));
-            TextView range = (TextView) findViewById(R.id.range);
+            TextView range = viewHandler.range;
             range.setText(normalWeightLimit);
-            TextView ideal = (TextView) findViewById(R.id.ideal);
+            TextView ideal = viewHandler.ideal;
             ideal.setText(String.valueOf(22*height * height));
             if (green) {
-                stat.setTextColor(Color.GREEN);
+                stat.setTextColor(0x002aad97);
             }else {
-                stat.setTextColor(Color.RED);
+                stat.setTextColor(0xffff0000);
             }d.hide();
         }
     }
