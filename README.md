@@ -1,3 +1,5 @@
+This repo is absolete and no more maintained
+
 # BMICalculator
 Android Body Mass Index Calculator
 
